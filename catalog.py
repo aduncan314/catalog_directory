@@ -22,6 +22,8 @@ import sys
 def main(directory_name: str):
     value = calculate_size(directory_name)
 
+    # TODO: Format output
+    # TODO: Convert to MB
     print(value)
 
 
@@ -42,4 +44,5 @@ def calculate_size(directory: str):
 
 
 if __name__ == '__main__':
+    # TODO: Handle no argument passed (don't raise out of bounds error)
     main(sys.argv[1])
