@@ -15,12 +15,30 @@ eg
                 - file one
                 - file two
 """
-
+import os
 import sys
 
 
 def main(directory_name: str):
-    print(directory_name)
+    value = calculate_size(directory_name)
+
+    print(value)
+
+
+def calculate_size(directory: str):
+    print(f"Checking directory \"{directory}\"...")
+    contents = os.listdir(directory)
+    cumulative_size = 0
+
+    for item in contents:
+        full_path = os.path.join(directory, item)
+        if os.path.isfile(full_path):
+            cumulative_size += os.path.getsize(full_path)
+        elif os.path.isdir(full_path):
+            cumulative_size += calculate_size(full_path)
+        else:
+            print(f"skipping voodoo item {full_path}")
+    return cumulative_size
 
 
 if __name__ == '__main__':
