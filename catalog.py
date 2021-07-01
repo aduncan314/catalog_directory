@@ -27,6 +27,15 @@ def main(directory_name: str):
     print(value)
 
 
+def validate_input():
+    if len(sys.argv) < 2:
+        print("gotta type something after catalog, bro.")
+        sys.exit(1)
+    if not os.path.isdir(sys.argv[1]):
+        print(f"\"{sys.argv[1]}\" is not a valid directory.")
+        sys.exit(1)
+
+
 def calculate_size(directory: str):
     print(f"Checking directory \"{directory}\"...")
     contents = os.listdir(directory)
@@ -44,5 +53,5 @@ def calculate_size(directory: str):
 
 
 if __name__ == '__main__':
-    # TODO: Handle no argument passed (don't raise out of bounds error)
+    validate_input()
     main(sys.argv[1])
