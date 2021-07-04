@@ -24,7 +24,7 @@ def main(directory_name: str):
 
     # TODO: Format output
     # TODO: Convert to MB
-    print(value)
+    print(f"\nTotal size of directory contents is {value * 0.000001} megabytes.")
 
 
 def validate_input():
